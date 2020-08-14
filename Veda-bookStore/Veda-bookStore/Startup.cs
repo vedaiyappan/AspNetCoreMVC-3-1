@@ -26,13 +26,36 @@ namespace Veda_bookStore
                 app.UseDeveloperExceptionPage();
             }
 
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("hello from first middle ware 1 ");
+
+            //    await next();
+
+            //    await context.Response.WriteAsync("hello from first middle ware  response 3 ");
+
+            //});
+
+            //app.Use(async ( context,next) =>
+            //{
+            //    await context.Response.WriteAsync("hello from Second  middle ware 2 ");
+            //});
+
             app.UseRouting();
 
+       
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
+                endpoints.Map("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
+                });
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.Map("/veda", async context =>
+                {
+                    await context.Response.WriteAsync("Hello World!-veda");
                 });
             });
         }
