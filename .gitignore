@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/Veda-bookStore/.vs/Veda-bookStore
+/Veda-bookStore/Veda-bookStore/bin/Debug/netcoreapp3.1
+/Veda-bookStore/Veda-bookStore/obj
