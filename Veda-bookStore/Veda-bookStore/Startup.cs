@@ -48,16 +48,24 @@ namespace Veda_bookStore
             {
                 endpoints.Map("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    if (env.IsEnvironment("Develop"))
+                    {
+                        await context.Response.WriteAsync("Hello World! DEV");
+                    }
+                    else
+                    {
+                        await context.Response.WriteAsync(env.EnvironmentName);
+                    }
+
                 });
             });
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.Map("/veda", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!-veda");
-                });
-            });
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.Map("/veda", async context =>
+            //    {
+            //        await context.Response.WriteAsync("Hello World!-veda");
+            //    });
+            //});
         }
     }
 }
