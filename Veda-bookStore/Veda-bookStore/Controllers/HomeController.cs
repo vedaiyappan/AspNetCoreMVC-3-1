@@ -8,14 +8,19 @@ namespace Veda_bookStore.Controllers
 {
     public class HomeController : Controller
     {
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        public string Index() 
+        public ViewResult Index()
         {
-            return "veda!!!";
+            return View();
+        }
+
+        public ViewResult AboutUs()
+        {
+            return View();
+        }
+
+        public ViewResult ContactUs()
+        {
+            return View();
         }
     }
 }
