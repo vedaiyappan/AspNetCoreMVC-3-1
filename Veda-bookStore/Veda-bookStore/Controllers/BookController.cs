@@ -14,25 +14,26 @@ namespace Veda_bookStore.Controllers
     {
         private readonly BookRepository _bookRepository = null;
 
-        public BookController(BookRepository bookRepository)
+        public BookController()
         {
-            _bookRepository = bookRepository;
+            _bookRepository = new BookRepository();
         }
 
-        public IActionResult Index()
+        public ViewResult GetAllBooks()
         {
-            return View();
-        }
-        public ViewResult AddNewBook()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ViewResult AddNewBook(BookModel bookModel)
-        {
-            _bookRepository.AddNewBook(bookModel);
+            var data = _bookRepository.GetAllBooks();
 
-            return View();
+            return View(data);
+        }
+
+        public BookModel GetBook(int id)
+        {
+            return _bookRepository.GetBookById(id);
+        }
+
+        public List<BookModel> SearchBooks(string bookName, string authorName)
+        {
+            return _bookRepository.SearchBook(bookName, authorName);
         }
     }
 }
